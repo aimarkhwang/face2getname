@@ -8,8 +8,8 @@ import json
 import random
 
 def face2getname(imgurl):
-    client_id = ""
-    client_secret = ""
+    client_id = "owwyyc6gbs"
+    client_secret = "KWhZoAa0YUK0eBpP91tgxyxfE9K53pVQIRaXkDu6"
     url = "https://naveropenapi.apigw.ntruss.com/vision/v1/celebrity" # 유명인 얼굴인식
 
     img = urlopen(imgurl).read()
@@ -32,4 +32,4 @@ def rnd_name():
     names = ['김대원','김경태','신윤한','이지훈','정회윤','조명진','김태환','김상희','강준필','조성활','김현정','송선종','신무철','배성환']
     return random.choice(names)
     
-print(rnd_name())
+# print(rnd_name())
