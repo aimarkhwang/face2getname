@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect
 import nvapi
 import dbdb
+import pandas as pd
 
 app =  Flask(__name__)
 
@@ -11,7 +12,12 @@ def hello():
 
 @app.route('/kb')
 def kb():
-    return "kbaseball"
+    data = pd.read_csv('https://raw.githubusercontent.com/aimarkhwang/aiam202010/main/csv/watermelon.csv')
+    print(data)
+    dlist = data.to_dict('list')
+    list1 = dlist.get('기온')
+    list2= dlist.get('주스판매량')
+    return render_template('watermelon.html', d1=list1, d2=list2)
 
 @app.route('/face', methods=['GET', 'POST'])
 def face():
@@ -40,8 +46,8 @@ def face():
 
 # pythonaywhere 사이트에 올리기 위해 변경
 if __name__ == '__main__':
-    if 'liveconsole' not in gethostname():
-        app.run(host='0.0.0.0', port=80, debug=True)
+    # if 'liveconsole' not in socket.gethostname():
+    app.run(host='0.0.0.0', port=80, debug=True)
 
 # dd = {'a': 1, 'd': '아이유'}
 # print(dd['a'])

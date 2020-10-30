@@ -1,9 +1,9 @@
 import pymysql
 
 def dbcon():
-    return pymysql.connect(host='markhwang.mysql.pythonanywhere-services.com',
-                   user='markhwang', password='1qasw23ed',
-                   db='markhwang$myai', charset='utf8',
+    return pymysql.connect(host='mysql.pythonanywhere-services.com',
+                   user='', password='',
+                   db='$myai', charset='utf8',
                    cursorclass=pymysql.cursors.DictCursor
                    )
 
